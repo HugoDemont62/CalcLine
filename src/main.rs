@@ -1,19 +1,20 @@
 use std::io;
 
 fn main() {
-    println!("Calculatrice en Rust");
-    println!("Opérations disponibles :");
+    println!("Calculator in Rust");
+    println!("Available operations :");
     println!("1. Addition");
     println!("2. Soustraction");
     println!("3. Multiplication");
     println!("4. Division");
-    println!("2. Quitter");
+
+    println!("5. To leave");
 
     loop {
         let mut choice = String::new();
 
         io::stdin().read_line(&mut choice)
-            .expect("Échec de la lecture de l'entrée");
+            .expect("Failed to read input");
 
         let choice: i32 = match choice.trim().parse() {
             Ok(num) => num,
@@ -22,24 +23,78 @@ fn main() {
 
         match choice {
             1 => {
-                println!("Entrez le premier nombre : ");
+                println!("Enter the first number : ");
                 let mut num1 = String::new();
                 io::stdin().read_line(&mut num1)
-                    .expect("Échec de la lecture de l'entrée");
+                    .expect("Failed to read input");
                 let num1: f64 = num1.trim().parse()
-                    .expect("Saisie invalide");
+                    .expect("Invalid entry");
 
-                println!("Entrez le deuxième nombre : ");
+                println!("Enter the second number : ");
                 let mut num2 = String::new();
                 io::stdin().read_line(&mut num2)
-                    .expect("Échec de la lecture de l'entrée");
+                    .expect("Failed to read input");
                 let num2: f64 = num2.trim().parse()
-                    .expect("Saisie invalide");
+                    .expect("Invalid entry");
 
                 let result = num1 + num2;
-                println!("Résultat : {}", result);
+                println!("Result : {}", result);
             }
             2 => {
+                println!("Enter the first number : ");
+                let mut num1 = String::new();
+                io::stdin().read_line(&mut num1)
+                    .expect("Failed to read input");
+                let num1: f64 = num1.trim().parse()
+                    .expect("Invalid Entry");
+
+                println!("Enter the second number : ");
+                let mut num2 = String::new();
+                io::stdin().read_line(&mut num2)
+                    .expect("Failed to read input");
+                let num2: f64 = num2.trim().parse()
+                    .expect("Invalid entry");
+
+                let result: f64 = num1 - num2;
+                println!("Result : {}", result);
+            }
+            3 => {
+                println!("Enter the first number : ");
+                let mut num1 = String::new();
+                io::stdin().read_line(&mut num1)
+                    .expect("Failed to read input");
+                let num1: f64 = num1.trim().parse()
+                    .expect("Invalid Entry");
+
+                println!("Enter the second number : ");
+                let mut num2 = String::new();
+                io::stdin().read_line(&mut num2)
+                    .expect("Failed to read input");
+                let num2: f64 = num2.trim().parse()
+                    .expect("Invalid entry");
+
+                let result: f64 = num1 * num2;
+                println!("Result : {}", result);
+            }
+            4 => {
+                println!("Enter the first number : ");
+                let mut num1 = String::new();
+                io::stdin().read_line(&mut num1)
+                    .expect("Failed to read input");
+                let num1: f64 = num1.trim().parse()
+                    .expect("Invalid Entry");
+
+                println!("Enter the second number : ");
+                let mut num2 = String::new();
+                io::stdin().read_line(&mut num2)
+                    .expect("Failed to read input");
+                let num2: f64 = num2.trim().parse()
+                    .expect("Invalid entry");
+
+                let result: f64 = num1 / num2;
+                println!("Result : {}", result);
+            }
+            5 => {
                 println!("Au revoir !");
                 return;
             }
